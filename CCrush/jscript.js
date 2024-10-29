@@ -71,10 +71,9 @@ function validateMove() {
   document.getElementById("left").disabled = true;
   document.getElementById("right").disabled = true;
   document.getElementById("down").disabled = true;
-  }else if (57 > moveVertical > 49){
-    
+  }else if (49 <= moveVertical,55 >= moveVertical){
     document.getElementById("up").disabled = false;
-  }else if (48 < moveVertical < 56){
+  }else if (49 <= moveVertical,55 >= moveVertical){
     document.getElementById("down").disabled = false;
     alert(moveVertical);
   }else if (moveLeft > 97){
