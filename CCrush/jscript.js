@@ -19,11 +19,13 @@ for (var i = 1; i < 9; i++) {
   holder.insertCell(-1).innerHTML = "g" + i
   holder.insertCell(-1).innerHTML = "h" + i
 }
+
 var cells = document.getElementsByTagName("td")
 for (var x = 0; x < cells.length; x++) {
   cells[x].style.backgroundColor =
     colors[Math.floor(Math.random() * colors.length)]
 }
+
 for (var x = 0; x < cells.length; x++){
   if (x < 8){
   cells[x].id = String.fromCharCode(97 + x) + 1;
@@ -42,50 +44,46 @@ for (var x = 0; x < cells.length; x++){
   }else if (x < 64){
   cells[x].id = String.fromCharCode(97 + (x - 56)) + 8;
   }}
+
+
+
   document.getElementById("up").disabled = true;
   document.getElementById("left").disabled = true;
   document.getElementById("right").disabled = true;
   document.getElementById("down").disabled = true;
   
+
+
 function validateMove() {
   document.getElementById("up").disabled = true;
   document.getElementById("left").disabled = true;
   document.getElementById("right").disabled = true;
   document.getElementById("down").disabled = true;
+
   var casilla = document.getElementById('move').value;
-  var moveUp = casilla.charCodeAt(1);
-  var moveDown = casilla.charCodeAt(1);
+
+  var moveVertical = casilla.charCodeAt(1);
+  
   var moveLeft = casilla.charCodeAt(0);
   var moveRight = casilla.charCodeAt(0);
-  if (57 > moveUp > 49){
+  if (casilla == ""){
+  document.getElementById("up").disabled = true;
+  document.getElementById("left").disabled = true;
+  document.getElementById("right").disabled = true;
+  document.getElementById("down").disabled = true;
+  }else if (57 > moveVertical > 49){
+    
     document.getElementById("up").disabled = false;
-  }
-  if (48 < moveDown < 56){
+  }else if (48 < moveVertical < 56){
     document.getElementById("down").disabled = false;
-  }
-  if (moveLeft > 97){
+    alert(moveVertical);
+  }else if (moveLeft > 97){
     document.getElementById("left").disabled = false;
-  }
-  if (moveRight < 104){
+  }else if (moveRight < 104){
     document.getElementById("right").disabled = false;
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function weeset() {
   location.reload()
